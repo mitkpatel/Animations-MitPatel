@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     var body: some View {
@@ -24,8 +25,18 @@ struct ContentView_Previews: PreviewProvider {
 struct LoginPage : View {
     
     @State var index = 0
+    @State private var showDetails = false
+    func moveRight(view: UIView) {
+        view.center.x += 100
+    }
     
+    func moveLeft(view: UIView) {
+        view.center.x -= 100
+    }
+    
+ 
     var body: some View{
+        
         
         GeometryReader{_ in
 
@@ -34,6 +45,8 @@ struct LoginPage : View {
                 Image("apple")
                 .resizable()
                 .frame(width: 55, height: 55)
+                .animation(Animation.easeOut.delay(0.7))
+                
                 
                 ZStack{
                     
@@ -63,7 +76,6 @@ struct LoginPage : View {
                 HStack(spacing: 40){
                     
                     Button(action: {
-                        
                     }) {
                         
                         Image("linkedin")
@@ -108,7 +120,36 @@ struct LoginPage : View {
                     }
                 }
                 .padding(.top, 30)
+                
+                VStack{
+                    Button (action: {
+                        withAnimation{
+                            showDetails.toggle()
+                        }
+                    }) {
+                        Text("Show/hide details").font(.system(size: 25))
+                            .frame(width: 250, height: 45)
+                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.green))
+                    }
+                    
+                }
+                .padding(.top, 30)
+                
+                if showDetails {
+                    Text("Assignment 1 - Mit Patel")
+                        .transition(.move(edge: .top))
+                        .animation(Animation.easeOut(duration: 0.9).delay(0.1))
+                        .lineLimit(1)
+                        .font(.headline)
+                        .padding(.top,5)
+                    Text("Play with animations")
+                        .transition(.slide)
+                        .animation(Animation.easeIn(duration: 0.9).delay(0.3))
+                        .lineLimit(1)
+                }
+                
             }
+            
             .padding(.vertical)
         }
         .background(Color("ColorBlack").edgesIgnoringSafeArea(.all))
@@ -153,6 +194,7 @@ struct LoginSection : View {
     @State var email = ""
     @State var password = ""
     @Binding var index : Int
+    @State private var animationAmount = 1
     
     var body: some View{
         
@@ -250,6 +292,7 @@ struct LoginSection : View {
                     .background(Color("ColorRed"))
                     .clipShape(Capsule())
                     .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
+
             }
             .offset(y: 30)
             .opacity(self.index == 0 ? 1 : 0)
@@ -363,5 +406,6 @@ struct SignupSection : View {
             .offset(y: 25)
             .opacity(self.index == 1 ? 1 : 0)
         }
+      
     }
 }
