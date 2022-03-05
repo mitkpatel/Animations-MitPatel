@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32000E8527D2ABB900E9FF0D /* WalkthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32000E8427D2ABB900E9FF0D /* WalkthroughView.swift */; };
 		32465ECD27C73DE600E733F7 /* Mit_Assi1_AnimationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32465ECC27C73DE600E733F7 /* Mit_Assi1_AnimationApp.swift */; };
 		32465ECF27C73DE600E733F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32465ECE27C73DE600E733F7 /* ContentView.swift */; };
 		32465ED127C73DE700E733F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32465ED027C73DE700E733F7 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32000E8427D2ABB900E9FF0D /* WalkthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughView.swift; sourceTree = "<group>"; };
 		32465EC927C73DE600E733F7 /* Mit_Assi1_Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mit_Assi1_Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32465ECC27C73DE600E733F7 /* Mit_Assi1_AnimationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mit_Assi1_AnimationApp.swift; sourceTree = "<group>"; };
 		32465ECE27C73DE600E733F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				32465ECC27C73DE600E733F7 /* Mit_Assi1_AnimationApp.swift */,
+				32000E8427D2ABB900E9FF0D /* WalkthroughView.swift */,
 				3297057B27C85BA5001B518B /* LoginView.swift */,
 				32F6821027D1EACD006DBBB1 /* likeblue.json */,
 				32465ECE27C73DE600E733F7 /* ContentView.swift */,
@@ -278,6 +281,7 @@
 				32465ECF27C73DE600E733F7 /* ContentView.swift in Sources */,
 				3297057C27C85BA5001B518B /* LoginView.swift in Sources */,
 				32465ECD27C73DE600E733F7 /* Mit_Assi1_AnimationApp.swift in Sources */,
+				32000E8527D2ABB900E9FF0D /* WalkthroughView.swift in Sources */,
 				32F6820B27D1E420006DBBB1 /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
