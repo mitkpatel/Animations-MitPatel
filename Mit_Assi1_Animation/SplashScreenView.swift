@@ -1,13 +1,50 @@
 //
-//  ContentView.swift
+//  SplashScreenView.swift
 //  Mit_Assi1_Animation
 //
-//  Created by user215540 on 2/23/22.
+//  Created by user215540 on 3/4/22.
 //
 
 import SwiftUI
 import UIKit
 import Lottie
+
+struct SplashScreenView: View {
+    
+    @State var animate = false
+    @State var endSplash = false
+    
+    var body: some View {
+        ZStack {
+            ContentView()
+            ZStack {
+                Color("ColorBlackLight")
+                
+                Image("MainLogo")
+                    .resizable()
+                    .renderingMode(.original)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .scaleEffect(animate ? 3 : 1)
+                    .frame(width: UIScreen.main.bounds.width)
+            }
+            .ignoresSafeArea(.all, edges: .all)
+            .onAppear(perform: animatesplash)
+            .opacity(endSplash ? 0 : 1)
+        }
+    }
+    
+    func animatesplash() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            withAnimation(Animation.easeOut(duration: 0.45)) {
+                animate.toggle()
+            }
+            withAnimation(Animation.linear(duration: 0.35)) {
+                endSplash.toggle()
+            }
+        }
+    }
+}
 
 struct ContentView: View {
     @State private var dragAmount = CGSize.zero
@@ -125,8 +162,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SplashScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SplashScreenView()
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct Mit_Assi1_AnimationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreenView()
         }
     }
 }

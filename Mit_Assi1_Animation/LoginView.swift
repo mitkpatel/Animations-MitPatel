@@ -170,17 +170,17 @@ struct LoginPage : View {
                         .animation(Animation.easeOut(duration: 0.9).delay(0.1))
                         .lineLimit(1)
                         .font(.headline)
-                        .padding(.top,5)
+                        .padding(.top,1)
                     Text("Play with animations")
                         .transition(.slide)
                         .animation(Animation.easeIn(duration: 0.9).delay(0.3))
                         .lineLimit(1)
-                        .padding(.top,5)
+                        .padding(.top,1)
                     Text("Click on Social Media icons")
                         .transition(.scale)
                         .animation(Animation.linear(duration: 1).delay(0.6))
                         .lineLimit(1)
-                        .padding(.top,5)
+                        .padding(.top,1)
                 }
                 
             }
@@ -232,7 +232,9 @@ struct LoginSection : View {
     @State private var animationAmount = 1
     @State private var amount = 0.0
     @State var isActive = false
-    
+    @State var isLoading = false
+    @State var circleProgress: CGFloat = 0.0
+    @State private var value: Double = 0
     
     var body: some View{
         
@@ -295,12 +297,14 @@ struct LoginSection : View {
                     Button(action: {
                         
                     }) {
-                        
-                        Text("Forget Password?")
-                            .foregroundColor(Color.white.opacity(0.6))
+                        if isLoading {
+                        ProgressView("Please wait...")
+                            .progressViewStyle(CircularProgressViewStyle(tint: .purple))
+                        }
                     }
+                    
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 120)
                 .padding(.top, 30)
             }
             .padding()
@@ -317,27 +321,24 @@ struct LoginSection : View {
             }
             .cornerRadius(35)
             .padding(.horizontal,20)
-                    
-         
+
+
             Button(action: {
-                withAnimation {
-                    amount += 360
-                }
+                isLoading.toggle()
             }) {
                 Text("LOGIN")
                     .foregroundColor(.white)
                     .fontWeight(.bold)
-                    .padding(.vertical, 25)
-                    .padding(.horizontal, 30)
+                    .padding(.vertical)
+                    .padding(.horizontal, 50)
                     .background(Color("ColorRed"))
                     .clipShape(Capsule())
-                    .shadow(color: Color.white.opacity(0.7), radius: 10, x: 0, y: 5)
-                    .rotation3DEffect(.degrees(amount), axis: (x: 0, y: 1, z: 0))
+                    .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
 
             }
             .offset(y: 30)
             .opacity(self.index == 0 ? 1 : 0)
-            
+
         }
     }
 }
